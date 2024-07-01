@@ -343,35 +343,3 @@ func StringToAsciiBlue(s string) string {
 func StringToAsciiGreen(s string) string {
 	return string("\n\033[1;32;40m") + s
 }
-
-func main() {
-	p, s, _ := GetStart(startUri)
-
-	for {
-		fmt.Println(StringToAsciiGreen(p.City + ", " + p.Property))
-		if p.Comment != "" {
-			fmt.Println(StringToAsciiWhite(p.Comment))
-		}
-		exits := DirectionsToString(p.Directions)
-		fmt.Println(StringToAsciiBlue("Obvious exits: " + exits))
-		fmt.Print(StringToAsciiWhite("[ HP:64 SP:9 MF:100 ]: "))
-
-		ui := InputToLong(GetInput())
-
-		if ui == "quit" {
-			break
-		} else if ui == "help" {
-			break
-		} else {
-			err := ValidateDirection(p.Directions, ui)
-			if err != nil {
-				fmt.Println(StringToAsciiWhite("You cannot go that way."))
-			} else {
-				p, s, err = GetPlace(s, p.Directions[ui])
-				if err != nil {
-					panic(err)
-				}
-			}
-		}
-	}
-}
