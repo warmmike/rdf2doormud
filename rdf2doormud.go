@@ -15,7 +15,7 @@ import (
 )
 
 const (
-	startUri          = "file://./1-1.ttl"
+	StartUri          = "file://./1-1.ttl"
 	startLabel        = "start"
 	labelPredicateUri = "http://www.w3.org/2004/02/skos/core#hiddenLabel"
 	placeObjectUri    = "http://schema.org#Place"
