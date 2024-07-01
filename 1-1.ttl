@@ -1,0 +1,163 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org#> .
+@prefix rsso: <http://geosysiot.in/rsso/ApplicationSchema#> .
+@prefix geo: <http://opengis.net/ont/geosparql#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+# Define classes
+schema:Place a rdfs:Class .
+rsso:Direction a rdfs:Class .
+
+# Define properties
+rsso:north a rdf:Property ;
+          rdfs:subPropertyOf rsso:Direction .
+
+rsso:south a rdf:Property ;
+          rdfs:subPropertyOf rsso:Direction .
+
+rsso:east a rdf:Property ;
+          rdfs:subPropertyOf rsso:Direction .
+
+rsso:west a rdf:Property ;
+          rdfs:subPropertyOf rsso:Direction .
+
+rsso:northwest a rdf:Property ;
+          rdfs:subPropertyOf rsso:Direction .
+
+rsso:southwest a rdf:Property ;
+          rdfs:subPropertyOf rsso:Direction .
+
+rsso:northeast a rdf:Property ;
+          rdfs:subPropertyOf rsso:Direction .
+
+rsso:southeast a rdf:Property ;
+          rdfs:subPropertyOf rsso:Direction .
+
+# Define individuals
+schema:Temple a schema:Place .
+
+schema:Area-1_0 a schema:Place .
+
+schema:Area-2_0 a schema:Place .
+
+schema:Armory a schema:Place .
+
+schema:Spells_and_Martial_Arts_tomes a schema:Place .
+
+schema:Area-3_0 a schema:Place .
+
+schema:Area-4_0 a schema:Place .
+
+schema:Trainer a schema:Place .
+
+schema:Area-5_0 a schema:Place .
+
+schema:Forest a schema:Place .
+
+# Connect places using directions
+schema:Temple
+    skos:hiddenLabel "start" ;
+    geo:lat "0.0"^^xsd:float ;
+    geo:long "0.0"^^xsd:float ;
+    rsso:south schema:Area-1_0 ;
+    schema:floorLevel "1-1" ;
+    rdfs:comment "This majestic building is the sole place of worship for the citizens of the town of Tolaria. Adventurers come here for healing and rest."@en ;
+    schema:city:name "Tolaria" ;
+    schema:property:category "Temple" ;
+    foaf:homepage <http://dmud.thebbs.org/maps/tolaria.htm> .
+
+schema:Area-1_0
+    geo:lat "-1.0"^^xsd:float ;
+    geo:long "0.0"^^xsd:float ;
+    rsso:north schema:Temple ;
+    rsso:south schema:Area-2_0 ;
+    schema:floorLevel "1-1" ;
+    rdfs:comment "This narrow dirt road is the main street in the small town of Tolaria. The local temple lies to the north, and the road continues to the south."@en ;
+    schema:city:name "Tolaria" ;
+    schema:property:category "Dirt Road" ;
+    foaf:homepage <http://dmud.thebbs.org/maps/tolaria.htm> .
+
+schema:Area-2_0
+    geo:lat "-2.0"^^xsd:float ;
+    geo:long "0.0"^^xsd:float ;
+    rsso:north schema:Area-1_0 ;
+    rsso:south schema:Area-3_0 ;
+    rsso:west schema:Armory ;
+    rsso:east schema:Spells_and_Martial_Arts_tomes;
+    schema:floorLevel "1-1" ;
+    rdfs:comment "This narrow dirt road is the main street in the small town of Tolaria. To the west is the town armory, and to the east you can see the town's spell shop."@en ;
+    schema:city:name "Tolaria" ;
+    schema:property:category "Dirt Road" ;
+    foaf:homepage <http://dmud.thebbs.org/maps/tolaria.htm> .
+
+schema:Armory
+    geo:lat "-2.0"^^xsd:float ;
+    geo:long "-1.0"^^xsd:float ;
+    rsso:east schema:Area-2_0 ;
+    schema:floorLevel "1-1" ;
+    rdfs:comment "This store sells hand-made weapons and armor for new adventurers.  The wares here are crude, but are nonetheless good enough for you to fight your way through the southern forest."@en ;
+    schema:city:name "Tolaria" ;
+    schema:property:category "Armory" ;
+    foaf:homepage <http://dmud.thebbs.org/maps/tolaria.htm> .
+
+schema:Spells_and_Martial_Arts_tomes
+    geo:lat "-2.0"^^xsd:float ;
+    geo:long "1.0"^^xsd:float ;
+    rsso:west schema:Area-2_0 ;
+    schema:floorLevel "1-1" ;
+    rdfs:comment "This small shack sells spell scrolls and martial art tomes for novices.  The spells are weak and the selection is small, but the prices are low."@en ;
+    schema:city:name "Tolaria" ;
+    schema:property:category "Spell Shop" ;
+    foaf:homepage <http://dmud.thebbs.org/maps/tolaria.htm> .
+
+schema:Area-3_0
+    geo:lat "-3.0"^^xsd:float ;
+    geo:long "0.0"^^xsd:float ;
+    rsso:north schema:Area-2_0 ;
+    rsso:south schema:Area-4_0 ;
+    schema:floorLevel "1-1" ;
+    rdfs:comment "This narrow dirt road is the main street in the small town of Tolaria."@en ;
+    schema:city:name "Tolaria" ;
+    schema:property:category "Dirt Road" ;
+    foaf:homepage <http://dmud.thebbs.org/maps/tolaria.htm> .
+
+schema:Area-4_0
+    geo:lat "-4.0"^^xsd:float ;
+    geo:long "0.0"^^xsd:float ;
+    rsso:north schema:Area-3_0 ;
+    rsso:south schema:Area-5_0 ;
+    rsso:west schema:Trainer ;
+    schema:floorLevel "1-1" ;
+    rdfs:comment "This narrow dirt road is the main street in the small town of Tolaria. To the west, you can see the town's training grounds."@en ;
+    schema:city:name "Tolaria" ;
+    schema:property:category "Dirt Road" ;
+    foaf:homepage <http://dmud.thebbs.org/maps/tolaria.htm> .
+
+schema:Trainer
+    geo:lat "-4.0"^^xsd:float ;
+    geo:long "-1.0"^^xsd:float ;
+    rsso:east schema:Area-4_0 ;
+    schema:floorLevel "1-1" ;
+    rdfs:comment "Adventurers come here after a hard day of battle to train their combat skills. Alas, the training grounds here in Tolaria are usually devoid of famous heroes, as they usually move to larger cities to seek out better training facilities.  However, many of the realm's champions are known to have learned their first combat lesson right here on this very spot."@en ;
+    schema:city:name "Tolaria" ;
+    schema:property:category "Training Grounds" ;
+    foaf:homepage <http://dmud.thebbs.org/maps/tolaria.htm> .
+
+schema:Area-5_0
+    geo:lat "-5.0"^^xsd:float ;
+    geo:long "0.0"^^xsd:float ;
+    rsso:north schema:Area-4_0 ;
+    rsso:south schema:Forest ;
+    schema:floorLevel "1-1" ;
+    rdfs:comment "This narrow dirt road is the main street in the small town of Tolaria. To the south, the road continues into the forest."@en ;
+    schema:city:name "Tolaria" ;
+    schema:property:category "Dirt Road" ;
+    foaf:homepage <http://dmud.thebbs.org/maps/tolaria.htm> .
+
+schema:Forest
+    geo:lat "0.0"^^xsd:float ;
+    geo:long "0.0"^^xsd:float ;
+    schema:url:url "file://./1-2.ttl" .

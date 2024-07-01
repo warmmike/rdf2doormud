@@ -1,0 +1,255 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org#> .
+@prefix rsso: <http://geosysiot.in/rsso/ApplicationSchema#> .
+@prefix geo: <http://opengis.net/ont/geosparql#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+# Define classes
+schema:Place a rdfs:Class .
+rsso:Direction a rdfs:Class .
+
+# Define properties
+rsso:north a rdf:Property ;
+          rdfs:subPropertyOf rsso:Direction .
+
+rsso:south a rdf:Property ;
+          rdfs:subPropertyOf rsso:Direction .
+
+rsso:east a rdf:Property ;
+          rdfs:subPropertyOf rsso:Direction .
+
+rsso:west a rdf:Property ;
+          rdfs:subPropertyOf rsso:Direction .
+
+rsso:northwest a rdf:Property ;
+          rdfs:subPropertyOf rsso:Direction .
+
+rsso:southwest a rdf:Property ;
+          rdfs:subPropertyOf rsso:Direction .
+
+rsso:northeast a rdf:Property ;
+          rdfs:subPropertyOf rsso:Direction .
+
+rsso:southeast a rdf:Property ;
+          rdfs:subPropertyOf rsso:Direction .
+
+# Define individuals
+schema:Tolaria a schema:Place .
+
+schema:Area-0_0 a schema:Place .
+
+schema:Area--1_-1 a schema:Place .
+
+schema:Area--1_-2 a schema:Place .
+
+schema:Area-0_-2 a schema:Place .
+
+schema:Area-1_-3 a schema:Place .
+
+schema:Area-1_-2 a schema:Place .
+
+schema:Area-2_-1 a schema:Place .
+
+schema:Area-3_0 a schema:Place .
+
+schema:Area-4_0 a schema:Place .
+
+schema:Area-5_1 a schema:Place .
+
+schema:Area-6_1 a schema:Place .
+
+schema:Area-7_1 a schema:Place .
+
+schema:Area-8_0 a schema:Place .
+
+schema:Area-9_-1 a schema:Place .
+
+schema:Area-9_-2 a schema:Place .
+
+schema:Area-10_-1 a schema:Place .
+
+# Connect places using directions
+schema:Tolaria
+    geo:lat "0.0"^^xsd:float ;
+    geo:long "0.0"^^xsd:float ;
+    schema:url:url "file://./1-1.ttl" .
+
+schema:Area-0_0
+    skos:hiddenLabel "start" ;
+    geo:lat "0.0"^^xsd:float ;
+    geo:long "0.0"^^xsd:float ;
+    rsso:north schema:Tolaria ;
+    rsso:southwest schema:Area--1_-1 ;
+    schema:floorLevel "1-2" ;
+    rdfs:comment "This dirt road winds its way through the nameless forest that is south of Tolaria.  One of the eastern paths leads to Ancalador, a great walled city. Unfortunately, the forest has recently become overrun with thugs and brigands, so explorers are warned to take caution.  In addition, a tribe of orcs has apparently built an encampment in the southwest corner of the forest.  A novice adventurer could gain quite a reputation by slaying their leader. You can see the entrance to the small town of Tolaria to the north."@en ;
+    schema:city:name "The Forest" ;
+    schema:property:category "Dirt Road" ;
+    foaf:homepage <http://dmud.thebbs.org/maps/forest.htm> .
+
+schema:Area--1_-1
+    geo:lat "-1.0"^^xsd:float ;
+    geo:long "-1.0"^^xsd:float ;
+    rsso:northeast schema:Area-0_0 ;
+    rsso:south schema:Area--1_-2 ;
+    schema:floorLevel "1-2" ;
+    rdfs:comment ""@en ;
+    schema:city:name "The Forest" ;
+    schema:property:category "Dirt Road" ;
+    foaf:homepage <http://dmud.thebbs.org/maps/forest.htm> .
+
+schema:Area--1_-2
+    geo:lat "-1.0"^^xsd:float ;
+    geo:long "-1.0"^^xsd:float ;
+    rsso:north schema:Area--1_-1 ;
+    rsso:east schema:Area-0_-2 ;
+    schema:floorLevel "1-2" ;
+    rdfs:comment ""@en ;
+    schema:city:name "The Forest" ;
+    schema:property:category "Dirt Road" ;
+    foaf:homepage <http://dmud.thebbs.org/maps/forest.htm> .
+
+schema:Area-0_-2
+    geo:lat "-1.0"^^xsd:float ;
+    geo:long "-1.0"^^xsd:float ;
+    rsso:west schema:Area--1_-2 ;
+    rsso:east schema:Area-1_-2 ;
+    rsso:south schema:Area-1_-3 ;
+    schema:floorLevel "1-2" ;
+    rdfs:comment ""@en ;
+    schema:city:name "The Forest" ;
+    schema:property:category "Dirt Road" ;
+    foaf:homepage <http://dmud.thebbs.org/maps/forest.htm> .
+
+schema:Area-1_-3
+    geo:lat "-1.0"^^xsd:float ;
+    geo:long "-1.0"^^xsd:float ;
+    rsso:north schema:Area-0_-2 ;
+    schema:floorLevel "1-2" ;
+    rdfs:comment ""@en ;
+    schema:city:name "The Forest" ;
+    schema:property:category "Dirt Road" ;
+    foaf:homepage <http://dmud.thebbs.org/maps/forest.htm> .
+
+schema:Area-1_-2
+    geo:lat "-1.0"^^xsd:float ;
+    geo:long "-1.0"^^xsd:float ;
+    rsso:northeast schema:Area-2_-1 ;
+    rsso:west schema:Area-0_-2;
+    schema:floorLevel "1-2" ;
+    rdfs:comment ""@en ;
+    schema:city:name "The Forest" ;
+    schema:property:category "Dirt Road" ;
+    foaf:homepage <http://dmud.thebbs.org/maps/forest.htm> .
+
+schema:Area-2_-1
+    geo:lat "-1.0"^^xsd:float ;
+    geo:long "-1.0"^^xsd:float ;
+    rsso:northeast schema:Area-3_0 ;
+    rsso:southwest schema:Area-1_-2 ;
+    schema:floorLevel "1-2" ;
+    rdfs:comment ""@en ;
+    schema:city:name "The Forest" ;
+    schema:property:category "Dirt Road" ;
+    foaf:homepage <http://dmud.thebbs.org/maps/forest.htm> .
+
+schema:Area-3_0
+    geo:lat "-1.0"^^xsd:float ;
+    geo:long "-1.0"^^xsd:float ;
+    rsso:southwest schema:Area-2_-1 ;
+    rsso:east schema:Area-4_0 ;
+    schema:floorLevel "1-2" ;
+    rdfs:comment ""@en ;
+    schema:city:name "The Forest" ;
+    schema:property:category "Dirt Road" ;
+    foaf:homepage <http://dmud.thebbs.org/maps/forest.htm> .
+
+schema:Area-4_0
+    geo:lat "-1.0"^^xsd:float ;
+    geo:long "-1.0"^^xsd:float ;
+    rsso:northeast schema:Area-5_1 ;
+    rsso:west schema:Area-3_0 ;
+    schema:floorLevel "1-2" ;
+    rdfs:comment ""@en ;
+    schema:city:name "The Forest" ;
+    schema:property:category "Dirt Road" ;
+    foaf:homepage <http://dmud.thebbs.org/maps/forest.htm> .
+
+schema:Area-5_1
+    geo:lat "-1.0"^^xsd:float ;
+    geo:long "-1.0"^^xsd:float ;
+    rsso:southwest schema:Area-4_0 ;
+    rsso:east schema:Area-6_1 ;
+    schema:floorLevel "1-2" ;
+    rdfs:comment ""@en ;
+    schema:city:name "The Forest" ;
+    schema:property:category "Dirt Road" ;
+    foaf:homepage <http://dmud.thebbs.org/maps/forest.htm> .
+
+schema:Area-6_1
+    geo:lat "-1.0"^^xsd:float ;
+    geo:long "-1.0"^^xsd:float ;
+    rsso:west schema:Area-5_1 ;
+    rsso:east schema:Area-7_1 ;
+    schema:floorLevel "1-2" ;
+    rdfs:comment ""@en ;
+    schema:city:name "The Forest" ;
+    schema:property:category "Dirt Road" ;
+    foaf:homepage <http://dmud.thebbs.org/maps/forest.htm> .
+
+schema:Area-7_1
+    geo:lat "-1.0"^^xsd:float ;
+    geo:long "-1.0"^^xsd:float ;
+    rsso:southeast schema:Area-8_0 ;
+    rsso:west schema:Area-6_1 ;
+    schema:floorLevel "1-2" ;
+    rdfs:comment ""@en ;
+    schema:city:name "The Forest" ;
+    schema:property:category "Dirt Road" ;
+    foaf:homepage <http://dmud.thebbs.org/maps/forest.htm> .
+
+schema:Area-8_0
+    geo:lat "-1.0"^^xsd:float ;
+    geo:long "-1.0"^^xsd:float ;
+    rsso:southeast schema:Area-9_-1 ;
+    rsso:northwest schema:Area-7_1 ;
+    schema:floorLevel "1-2" ;
+    rdfs:comment ""@en ;
+    schema:city:name "The Forest" ;
+    schema:property:category "Dirt Road" ;
+    foaf:homepage <http://dmud.thebbs.org/maps/forest.htm> .
+
+schema:Area-9_-1
+    geo:lat "-1.0"^^xsd:float ;
+    geo:long "-1.0"^^xsd:float ;
+    rsso:east schema:Area-10_-1 ;
+    rsso:northwest schema:Area-8_0 ;
+    rsso:southwest schema:Area-9_-2 ;
+    schema:floorLevel "1-2" ;
+    rdfs:comment "The road forks here.  The road to the east leads directly to the city of Ancalador, the northwestern path leads back to Tolaria, and the southwestern path leads deeper into the forest."@en ;
+    schema:city:name "The Forest" ;
+    schema:property:category "Dirt Road" ;
+    foaf:homepage <http://dmud.thebbs.org/maps/forest.htm> .
+
+schema:Area-9_-2
+    geo:lat "-1.0"^^xsd:float ;
+    geo:long "-1.0"^^xsd:float ;
+    rsso:northeast schema:Area-9_-1 ;
+    schema:floorLevel "1-2" ;
+    rdfs:comment ""@en ;
+    schema:city:name "The Forest" ;
+    schema:property:category "Dirt Road" ;
+    foaf:homepage <http://dmud.thebbs.org/maps/forest.htm> .
+
+schema:Area-10_-1
+    geo:lat "-1.0"^^xsd:float ;
+    geo:long "-1.0"^^xsd:float ;
+    rsso:west schema:Area-9_-1 ;
+    schema:floorLevel "1-2" ;
+    rdfs:comment "This sturdy stone bridge provides passage over the creek below."@en ;
+    schema:city:name "The Forest" ;
+    schema:property:category "Dirt Road" ;
+    schema:event:name "bridge troll" ;
+    foaf:homepage <http://dmud.thebbs.org/maps/forest.htm> .
