@@ -15,10 +15,13 @@ import (
 )
 
 const (
-	StartUri          = "file://./1-1.ttl"
 	startLabel        = "start"
 	labelPredicateUri = "http://www.w3.org/2004/02/skos/core#hiddenLabel"
 	placeObjectUri    = "http://schema.org#Place"
+)
+
+var (
+	StartUri = "file://./1-1.ttl"
 )
 
 var (
